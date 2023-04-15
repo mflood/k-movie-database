@@ -11,6 +11,9 @@ class ApiKeyViewController: UIViewController {
 
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +32,8 @@ class ApiKeyViewController: UIViewController {
         
         if let apiKeyText = self.apiKeyTextField.text {
             
-            // getNewAuthToken(apiKey: apiKeyText, completion: self.handleRequestTokenResponse)
-            
+            TmdbClient.getNewAuthToken(apiKey: apiKeyText,
+                                       completion: self.handleRequestTokenResponse)
             print("apiKeyText: \(apiKeyText)")
         } else {
             showAlert(title: "Empty API Key", message: "Please enter a TMBD API key")
@@ -47,28 +50,51 @@ class ApiKeyViewController: UIViewController {
         
         guard let successReponse = successReponse else {
             DispatchQueue.main.async { [self] in
-                self.showAlert(title: "could not auth", message: errorString!)
+                self.showAlert(title: "Login Failed", message: errorString!)
             }
             return
         }
         
-        // Save this for use after we get callback from Web Auth
-        TmdbClient.Auth.requestToken = successReponse.requestToken
-        
-        let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
-        
-        DispatchQueue.main.async { [self] in
-            UIApplication.shared.open(url)
+        guard let apiKey = TmdbClient.Auth.apiKey else {
+            DispatchQueue.main.async { [self] in
+                self.showAlert(title: "Login Failed", message: "could not load API Key")
+            }
+            return
         }
+        
+        // Save this for use after we log in successfully
+        // TmdbClient.Auth.requestToken = successReponse.requestToken
+        
+        DispatchQueue.main.async {
+            TmdbClient.login(apiKey: apiKey,
+                             username: self.usernameTextField.text!,
+                             password: self.passwordTextField.text!,
+                             requestToken: successReponse.requestToken,
+                             completion: self.handleLoginResponse)
+        }
+        
+        // This was trying to use external Web Login with callback using "kdramadiary" scheme
+        // let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
+        //DispatchQueue.main.async { [self] in
+        //    UIApplication.shared.open(url)
+        //}
         
 
         //print("errorString: \(errorString)")
         //print("successReponse: \(successReponse)")
     }
     
-    func handleLoginResponse() {
+    func handleLoginResponse(loginSuccess: LoginResponseSuccess?, errorString: String?) {
         
-        
+        if let errorString = errorString {
+            DispatchQueue.main.async {
+                self.showAlert(title: "Login Failed", message: errorString)
+            }
+            return
+        }
+
+        TmdbClient.Auth.requestToken = loginSuccess?.requestToken
+        print(loginSuccess)
         
     }
     

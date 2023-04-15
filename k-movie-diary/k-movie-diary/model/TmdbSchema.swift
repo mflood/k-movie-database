@@ -24,7 +24,7 @@ struct AuthenticationTokenNewResponseSuccess: Codable {
     }
 }
 
-struct AuthenticationTokenNewResponseFailure: Codable {
+struct TmdbApiFailureResponse: Codable {
     var success: Bool
     var statusCode: Int32
     var statusMessage: String

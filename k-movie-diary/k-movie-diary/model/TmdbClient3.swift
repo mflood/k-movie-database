@@ -69,8 +69,12 @@ class TmdbClient {
                 completion(successResponseObject, nil)
                 return
             } catch {
-                // try catch and return failure
-                completion(nil, error.localizedDescription)
+                do {
+                    let failureResponseObject = try decoder.decode(TmdbApiFailureResponse.self, from: data)
+                    completion(nil, failureResponseObject.statusMessage)
+                } catch {
+                    completion(nil, error.localizedDescription)
+                }
             }
         }
         task.resume()
@@ -95,7 +99,7 @@ class TmdbClient {
                 return
             } catch {
                 do {
-                    let failureResponseObject = try decoder.decode(AuthenticationTokenNewResponseFailure.self, from: data)
+                    let failureResponseObject = try decoder.decode(TmdbApiFailureResponse.self, from: data)
                     completion(nil, failureResponseObject.statusMessage)
                 } catch {
                     completion(nil, error.localizedDescription)
