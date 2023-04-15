@@ -19,6 +19,7 @@
 		6F558C4429EB1E1F00F4C0F7 /* TmdbSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C4329EB1E1F00F4C0F7 /* TmdbSchema.swift */; };
 		6F558C4629EB3E2900F4C0F7 /* tmdb_api_template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C4529EB3E2900F4C0F7 /* tmdb_api_template.plist */; };
 		6F558C4829EB428E00F4C0F7 /* tmdb_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C4729EB428E00F4C0F7 /* tmdb_api.plist */; };
+		6F558C4A29EB574E00F4C0F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C4929EB574E00F4C0F7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6F558C4329EB1E1F00F4C0F7 /* TmdbSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbSchema.swift; sourceTree = "<group>"; };
 		6F558C4529EB3E2900F4C0F7 /* tmdb_api_template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tmdb_api_template.plist; sourceTree = "<group>"; };
 		6F558C4729EB428E00F4C0F7 /* tmdb_api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tmdb_api.plist; sourceTree = "<group>"; };
+		6F558C4929EB574E00F4C0F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				6F558C2929EB071200F4C0F7 /* ViewController.swift */,
 				6F558C3A29EB094D00F4C0F7 /* ApiKeyViewController.swift */,
+				6F558C4929EB574E00F4C0F7 /* SettingsViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				6F558C2829EB071200F4C0F7 /* SceneDelegate.swift in Sources */,
 				6F558C3B29EB094D00F4C0F7 /* ApiKeyViewController.swift in Sources */,
 				6F558C4029EB1B3C00F4C0F7 /* TmdbClient3.swift in Sources */,
+				6F558C4A29EB574E00F4C0F7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

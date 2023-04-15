@@ -17,6 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+       
+        
+        let url = URLContexts.first!.url        
+        if url.scheme == "kdramadiary" {
+            
+            if let rootViewController = self.window?.rootViewController as? ApiKeyViewController {
+                let loginSuccess = LoginResponseSuccess(success: true, expiresAt: "", requestToken: TmdbClient.Auth.requestToken!)
+                let errorString: String? = nil
+                rootViewController.handleLoginResponse(loginSuccess: loginSuccess, errorString: errorString)
+            }
+        }
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -45,7 +59,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
 
 }
 

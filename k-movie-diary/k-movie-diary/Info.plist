@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>matthew.flood.kdramadiary</string>
+			<string>flood.matthew.k-drama-diary</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kdramadiary</string>

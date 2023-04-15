@@ -40,6 +40,31 @@ class ApiKeyViewController: UIViewController {
         }
     }
     
+    @IBAction func handleLoginWithWebClicked(_ sender: Any) {
+        if let apiKeyText = self.apiKeyTextField.text {
+            
+            TmdbClient.getNewAuthToken(apiKey: apiKeyText,
+                                       completion: self.handleRequestTokenResponseForWebLogin)
+            print("apiKeyText: \(apiKeyText)")
+        } else {
+            showAlert(title: "Empty API Key", message: "Please enter a TMBD API key")
+        }
+    }
+    
+    func handleRequestTokenResponseForWebLogin(successReponse: AuthenticationTokenNewResponseSuccess?, errorString: String?) {
+        guard let successReponse = successReponse else {
+            DispatchQueue.main.async { [self] in
+                self.showAlert(title: "Login Failed", message: errorString!)
+            }
+            return
+        }
+
+        let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
+        DispatchQueue.main.async { [self] in
+            UIApplication.shared.open(url)
+        }
+    }
+    
     @IBAction func handleEditingDidEnd(_ sender: Any) {
         if let textfield = sender as? UITextField {
             textfield.resignFirstResponder()
@@ -72,6 +97,7 @@ class ApiKeyViewController: UIViewController {
                              requestToken: successReponse.requestToken,
                              completion: self.handleLoginResponse)
         }
+        
         
         // This was trying to use external Web Login with callback using "kdramadiary" scheme
         // let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
@@ -107,7 +133,7 @@ class ApiKeyViewController: UIViewController {
             return
         }
         
-        TmdbClient.Auth.requestToken = loginSuccess.requestToken
+        
         
         TmdbClient.newSession(apiKey: apiKey,
                               requestToken: loginSuccess.requestToken,

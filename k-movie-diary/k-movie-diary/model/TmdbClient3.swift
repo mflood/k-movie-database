@@ -139,6 +139,7 @@ class TmdbClient {
             let decoder = JSONDecoder()
             do {
                 let successResponseObject = try decoder.decode(AuthenticationTokenNewResponseSuccess.self, from: data)
+                TmdbClient.Auth.requestToken = successResponseObject.requestToken
                 completion(successResponseObject, nil)
                 return
             } catch {
