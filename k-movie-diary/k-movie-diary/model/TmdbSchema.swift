@@ -20,6 +20,6 @@ struct AuthenticationTokenNewResponseSuccess: Codable {
 
 struct AuthenticationTokenNewResponseFailure: Codable {
     var success: Bool
-    var status_code: String
+    var status_code: Int32
     var status_message: String
 }

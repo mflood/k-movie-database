@@ -7,6 +7,11 @@
 
 import Foundation
 
+
+class TmdbAuth {
+    static var requestToken: String? = nil
+}
+
 struct TmdbApiKey: Codable {
     var apiKey: String
 }

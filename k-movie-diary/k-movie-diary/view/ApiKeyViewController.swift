@@ -47,8 +47,26 @@ class ApiKeyViewController: UIViewController {
     }
     
     func handleRequestTokenResponse(successReponse: AuthenticationTokenNewResponseSuccess?, errorString: String?) {
-        print("errorString: \(errorString)")
-        print("successReponse: \(successReponse)")
+        
+        guard let successReponse = successReponse else {
+            DispatchQueue.main.async { [self] in
+                self.showAlert(title: "could not auth", message: errorString!)
+            }
+            return
+        }
+        
+        // Save this for use after we get callback from Web Auth
+        TmdbAuth.requestToken = successReponse.request_token
+        
+        let url = TmdbClient.Endpoint.userAuth(requestToken: successReponse.request_token).url
+        
+        DispatchQueue.main.async { [self] in
+            UIApplication.shared.open(url)
+        }
+        
+
+        //print("errorString: \(errorString)")
+        //print("successReponse: \(successReponse)")
     }
     
     func showAlert(title: String, message: String) {

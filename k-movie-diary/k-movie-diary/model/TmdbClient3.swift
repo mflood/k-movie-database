@@ -15,11 +15,14 @@ class TmdbClient {
         static let base = "https://api.themoviedb.org/3/"
         
         case authToken(apiKey: String)
+        case userAuth(requestToken: String)
 
         var stringValue: String {
             switch self {
             case let .authToken(apiKey):
                 return Endpoint.base + "authentication/token/new?api_key=" + apiKey
+            case let .userAuth(requestToken):
+                return "https://www.themoviedb.org/authenticate/\(requestToken)?redirect_to=kdramadiary://auth/approved"
             }
         }
         
@@ -28,6 +31,8 @@ class TmdbClient {
         }
     }
 }
+
+
 
 func getNewAuthToken(apiKey: String, completion: @escaping (AuthenticationTokenNewResponseSuccess?, _ errorString:  String?) -> Void) {
     
