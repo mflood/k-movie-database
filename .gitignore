@@ -89,5 +89,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-k-movie-diary/k-movie-diary/tmdb_api.plist
+*.tmdb_api.plist
+"k-movie-diary/k-movie-diary/tmdb_api.plist"
 
