@@ -5,8 +5,14 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>kdramadiary</string>
+			<string>matthew.flood.kdramadiary</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kdramadiary</string>
+			</array>
 		</dict>
 	</array>
 	<key>UIApplicationSceneManifest</key>

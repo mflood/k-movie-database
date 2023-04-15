@@ -14,12 +14,48 @@ struct Movie: Codable {
 
 struct AuthenticationTokenNewResponseSuccess: Codable {
     var success: Bool
-    var expires_at: String
-    var request_token: String
+    var expiresAt: String
+    var requestToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case success
+        case expiresAt = "expires_at"
+        case requestToken = "request_token"
+    }
 }
 
 struct AuthenticationTokenNewResponseFailure: Codable {
     var success: Bool
-    var status_code: Int32
-    var status_message: String
+    var statusCode: Int32
+    var statusMessage: String
+    
+    enum CodingKeys: String, CodingKey {
+        case success
+        case statusCode = "status_code"
+        case statusMessage = "status_message"
+    }
+}
+
+struct LoginRequest: Codable {
+    var username: String
+    var password: String
+    var requestToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case username
+        case password
+        case requestToken = "request_token"
+    }
+}
+
+struct LoginResponseSuccess: Codable {
+    var success: Bool
+    var expiresAt: String
+    var requestToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case success
+        case expiresAt = "expires_at"
+        case requestToken = "request_token"
+    }
 }

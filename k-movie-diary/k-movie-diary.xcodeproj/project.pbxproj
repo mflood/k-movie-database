@@ -17,6 +17,7 @@
 		6F558C3E29EB09CC00F4C0F7 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C3D29EB09CC00F4C0F7 /* ApiKey.swift */; };
 		6F558C4029EB1B3C00F4C0F7 /* TmdbClient3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C3F29EB1B3C00F4C0F7 /* TmdbClient3.swift */; };
 		6F558C4429EB1E1F00F4C0F7 /* TmdbSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C4329EB1E1F00F4C0F7 /* TmdbSchema.swift */; };
+		6F558C4629EB3E2900F4C0F7 /* tmdb_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C4529EB3E2900F4C0F7 /* tmdb_api.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6F558C3D29EB09CC00F4C0F7 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		6F558C3F29EB1B3C00F4C0F7 /* TmdbClient3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbClient3.swift; sourceTree = "<group>"; };
 		6F558C4329EB1E1F00F4C0F7 /* TmdbSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbSchema.swift; sourceTree = "<group>"; };
+		6F558C4529EB3E2900F4C0F7 /* tmdb_api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tmdb_api.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				6F558C2E29EB071300F4C0F7 /* Assets.xcassets */,
 				6F558C3029EB071300F4C0F7 /* LaunchScreen.storyboard */,
 				6F558C3329EB071300F4C0F7 /* Info.plist */,
+				6F558C4529EB3E2900F4C0F7 /* tmdb_api.plist */,
 			);
 			path = "k-movie-diary";
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F558C4629EB3E2900F4C0F7 /* tmdb_api.plist in Resources */,
 				6F558C3229EB071300F4C0F7 /* LaunchScreen.storyboard in Resources */,
 				6F558C2F29EB071300F4C0F7 /* Assets.xcassets in Resources */,
 				6F558C2D29EB071200F4C0F7 /* Main.storyboard in Resources */,

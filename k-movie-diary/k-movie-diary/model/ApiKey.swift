@@ -8,9 +8,26 @@
 import Foundation
 
 
-class TmdbAuth {
-    static var requestToken: String? = nil
+
+func loadTmdbApiKey(){
+    
+    if let path = Bundle.main.path(forResource: "tmdb_api", ofType: "plist") {
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            
+            let propertyListDecoder = PropertyListDecoder()
+            let apiKey = try? propertyListDecoder.decode(TmdbApiKey.self, from: data)
+            TmdbClient.Auth.apiKey = apiKey?.apiKey
+            print("Loaded TmdbClient.Auth.apiKey: \(TmdbClient.Auth.apiKey)")
+        } catch {
+            // Handle error here
+            print(error)
+        }
+    }
 }
+
+
+
 
 struct TmdbApiKey: Codable {
     var apiKey: String

@@ -20,8 +20,8 @@ class ApiKeyViewController: UIViewController {
     
     // Load API Key from local storage
     func loadApiKeyValue() {
-        if let tmdbApiKey = getExistingApiKey() {
-            self.apiKeyTextField.text = tmdbApiKey.apiKey
+        if let apiKey = TmdbClient.Auth.apiKey {
+            self.apiKeyTextField.text = apiKey
         }
     }
     
@@ -29,7 +29,7 @@ class ApiKeyViewController: UIViewController {
         
         if let apiKeyText = self.apiKeyTextField.text {
             
-            getNewAuthToken(apiKey: apiKeyText, completion: self.handleRequestTokenResponse)
+            // getNewAuthToken(apiKey: apiKeyText, completion: self.handleRequestTokenResponse)
             
             print("apiKeyText: \(apiKeyText)")
         } else {
@@ -56,9 +56,9 @@ class ApiKeyViewController: UIViewController {
         }
         
         // Save this for use after we get callback from Web Auth
-        TmdbAuth.requestToken = successReponse.request_token
+        TmdbClient.Auth.requestToken = successReponse.requestToken
         
-        let url = TmdbClient.Endpoint.userAuth(requestToken: successReponse.request_token).url
+        let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
         
         DispatchQueue.main.async { [self] in
             UIApplication.shared.open(url)
@@ -67,6 +67,12 @@ class ApiKeyViewController: UIViewController {
 
         //print("errorString: \(errorString)")
         //print("successReponse: \(successReponse)")
+    }
+    
+    func handleLoginResponse() {
+        
+        
+        
     }
     
     func showAlert(title: String, message: String) {
