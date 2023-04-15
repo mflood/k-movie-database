@@ -41,9 +41,6 @@ class ApiKeyViewController: UIViewController {
         if let textfield = sender as? UITextField {
             textfield.resignFirstResponder()
         }
-        if let apiKeyText = self.apiKeyTextField.text {
-            saveTmdbApiKey(apiKey: TmdbApiKey(apiKey: apiKeyText))
-        }
     }
     
     func handleRequestTokenResponse(successReponse: AuthenticationTokenNewResponseSuccess?, errorString: String?) {
