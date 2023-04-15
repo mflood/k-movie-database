@@ -125,8 +125,27 @@ class ApiKeyViewController: UIViewController {
             return
         }
         
-        print(newSessionResponseSuccess)
-        TmdbClient.Auth.sessionId = newSessionResponseSuccess?.sessionId
+        guard let newSessionResponseSuccess = newSessionResponseSuccess else {
+            return
+        }
+        
+        TmdbClient.Auth.sessionId = newSessionResponseSuccess.sessionId
+        
+        if newSessionResponseSuccess.success {
+            DispatchQueue.main.async {
+                
+                //DispatchQueue.main.async {
+                //    let otmTabBarController = self.storyboard!.instantiateViewController(withIdentifier: "OtmRootNavigationController") as! UINavigationController
+                    
+                //    otmTabBarController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                //    self.present(otmTabBarController, animated: true)
+                //}
+
+                self.performSegue(withIdentifier: "SegueToAppRoot", sender: nil)
+            }
+        }
+        
+        
         
     }
     
