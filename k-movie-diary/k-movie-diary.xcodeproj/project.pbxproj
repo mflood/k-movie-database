@@ -13,6 +13,8 @@
 		6F558C2D29EB071200F4C0F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C2B29EB071200F4C0F7 /* Main.storyboard */; };
 		6F558C2F29EB071300F4C0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C2E29EB071300F4C0F7 /* Assets.xcassets */; };
 		6F558C3229EB071300F4C0F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F558C3029EB071300F4C0F7 /* LaunchScreen.storyboard */; };
+		6F558C3B29EB094D00F4C0F7 /* ApiKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C3A29EB094D00F4C0F7 /* ApiKeyViewController.swift */; };
+		6F558C3E29EB09CC00F4C0F7 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F558C3D29EB09CC00F4C0F7 /* ApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		6F558C2E29EB071300F4C0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F558C3129EB071300F4C0F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F558C3329EB071300F4C0F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F558C3A29EB094D00F4C0F7 /* ApiKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewController.swift; sourceTree = "<group>"; };
+		6F558C3D29EB09CC00F4C0F7 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		6F558C2429EB071200F4C0F7 /* k-movie-diary */ = {
 			isa = PBXGroup;
 			children = (
+				6F558C3C29EB09BD00F4C0F7 /* model */,
+				6F558C3929EB093C00F4C0F7 /* view */,
 				6F558C2529EB071200F4C0F7 /* AppDelegate.swift */,
 				6F558C2729EB071200F4C0F7 /* SceneDelegate.swift */,
-				6F558C2929EB071200F4C0F7 /* ViewController.swift */,
 				6F558C2B29EB071200F4C0F7 /* Main.storyboard */,
 				6F558C2E29EB071300F4C0F7 /* Assets.xcassets */,
 				6F558C3029EB071300F4C0F7 /* LaunchScreen.storyboard */,
 				6F558C3329EB071300F4C0F7 /* Info.plist */,
 			);
 			path = "k-movie-diary";
+			sourceTree = "<group>";
+		};
+		6F558C3929EB093C00F4C0F7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				6F558C2929EB071200F4C0F7 /* ViewController.swift */,
+				6F558C3A29EB094D00F4C0F7 /* ApiKeyViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		6F558C3C29EB09BD00F4C0F7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6F558C3D29EB09CC00F4C0F7 /* ApiKey.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F558C3E29EB09CC00F4C0F7 /* ApiKey.swift in Sources */,
 				6F558C2A29EB071200F4C0F7 /* ViewController.swift in Sources */,
 				6F558C2629EB071200F4C0F7 /* AppDelegate.swift in Sources */,
 				6F558C2829EB071200F4C0F7 /* SceneDelegate.swift in Sources */,
+				6F558C3B29EB094D00F4C0F7 /* ApiKeyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
