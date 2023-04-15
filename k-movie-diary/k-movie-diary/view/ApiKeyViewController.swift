@@ -92,9 +92,41 @@ class ApiKeyViewController: UIViewController {
             }
             return
         }
-
-        TmdbClient.Auth.requestToken = loginSuccess?.requestToken
+        
+        guard let apiKey = TmdbClient.Auth.apiKey else {
+            DispatchQueue.main.async { [self] in
+                self.showAlert(title: "Login Failed", message: "could not load API Key")
+            }
+            return
+        }
+        
+        guard let loginSuccess = loginSuccess else {
+            DispatchQueue.main.async { [self] in
+                self.showAlert(title: "Login Failed", message: "no data in response")
+            }
+            return
+        }
+        
+        TmdbClient.Auth.requestToken = loginSuccess.requestToken
+        
+        TmdbClient.newSession(apiKey: apiKey,
+                              requestToken: loginSuccess.requestToken,
+                              completion: self.handleNewSessionResponse)
+        
         print(loginSuccess)
+    }
+    
+    func handleNewSessionResponse(newSessionResponseSuccess: NewSessionResponseSuccess?, errorString: String?) {
+        
+        if let errorString = errorString {
+            DispatchQueue.main.async {
+                self.showAlert(title: "Login Failed", message: errorString)
+            }
+            return
+        }
+        
+        print(newSessionResponseSuccess)
+        TmdbClient.Auth.sessionId = newSessionResponseSuccess?.sessionId
         
     }
     

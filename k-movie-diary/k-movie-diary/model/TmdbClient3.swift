@@ -13,6 +13,7 @@ class TmdbClient {
     struct Auth {
         static var apiKey: String? = nil
         static var requestToken: String? = nil
+        static var sessionId: String? = nil
     }
     
     enum Endpoint {
@@ -22,6 +23,7 @@ class TmdbClient {
         case authToken(apiKey: String)
         case externalUserAuth(requestToken: String)
         case internalLogin(apiKey: String)
+        case newSession(apiKey: String)
 
         var stringValue: String {
             switch self {
@@ -31,6 +33,8 @@ class TmdbClient {
                 return "https://www.themoviedb.org/authenticate/\(requestToken)?redirect_to=kdramadiary:auth/approved"
             case .internalLogin(apiKey: let apiKey):
                 return Endpoint.base + "authentication/token/validate_with_login?api_key=" + apiKey
+            case .newSession(apiKey: let apiKey):
+                return Endpoint.base + "authentication/session/new?api_key=" + apiKey
             }
         }
         
@@ -38,6 +42,46 @@ class TmdbClient {
             return URL(string: self.stringValue)!
         }
     }
+    
+    
+    class func newSession(apiKey: String,
+                     requestToken: String,
+                     completion: @escaping (NewSessionResponseSuccess?, _ errorString:  String?) -> Void) {
+        
+        let url = TmdbClient.Endpoint.newSession(apiKey: apiKey).url
+        print("url: \(url)")
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = NewSessionRequest(requestToken: requestToken)
+        urlRequest.httpBody = try! JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+           
+            guard let data = data else {
+                completion(nil, error?.localizedDescription)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let newSessionResponseObject = try decoder.decode(NewSessionResponseSuccess.self, from: data)
+                completion(newSessionResponseObject, nil)
+                return
+            } catch {
+                do {
+                    let failureResponseObject = try decoder.decode(TmdbApiFailureResponse.self, from: data)
+                    completion(nil, failureResponseObject.statusMessage)
+                } catch {
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+    }
+    
     
     class func login(apiKey: String,
                      username: String,

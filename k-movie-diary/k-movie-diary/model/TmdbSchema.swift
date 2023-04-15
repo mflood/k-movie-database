@@ -59,3 +59,24 @@ struct LoginResponseSuccess: Codable {
         case requestToken = "request_token"
     }
 }
+
+struct NewSessionRequest: Codable {
+    var requestToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case requestToken = "request_token"
+    }
+}
+
+
+
+struct NewSessionResponseSuccess: Codable {
+    var success: Bool
+    var sessionId: String
+    
+    enum CodingKeys: String, CodingKey {
+        case success
+        case sessionId = "session_id"
+    }
+}
+
