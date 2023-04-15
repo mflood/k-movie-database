@@ -28,7 +28,10 @@ class ApiKeyViewController: UIViewController {
     @IBAction func handleStartButtonClicked(_ sender: Any) {
         
         if let apiKeyText = self.apiKeyTextField.text {
-            print(apiKeyText)
+            
+            getNewAuthToken(apiKey: apiKeyText, completion: self.handleRequestTokenResponse)
+            
+            print("apiKeyText: \(apiKeyText)")
         } else {
             showAlert(title: "Empty API Key", message: "Please enter a TMBD API key")
         }
@@ -41,6 +44,11 @@ class ApiKeyViewController: UIViewController {
         if let apiKeyText = self.apiKeyTextField.text {
             saveTmdbApiKey(apiKey: TmdbApiKey(apiKey: apiKeyText))
         }
+    }
+    
+    func handleRequestTokenResponse(successReponse: AuthenticationTokenNewResponseSuccess?, errorString: String?) {
+        print("errorString: \(errorString)")
+        print("successReponse: \(successReponse)")
     }
     
     func showAlert(title: String, message: String) {
