@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
     
     func handleDeleteSession(errorString: String?) {
         DispatchQueue.main.async {
-            let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! ApiKeyViewController
+            let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             loginViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
             self.present(loginViewController, animated: true)
             // self.present(loginViewController, animated: true)

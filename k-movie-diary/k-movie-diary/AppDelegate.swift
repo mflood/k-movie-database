@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     
             if let windowScene = scene as? UIWindowScene {
                 
-                if let rootViewController = windowScene.keyWindow?.rootViewController as? ApiKeyViewController {
+                if let rootViewController = windowScene.keyWindow?.rootViewController as? LoginViewController {
                     let loginSuccess = LoginResponseSuccess(success: true, expiresAt: "", requestToken: TmdbClient.Auth.requestToken!)
                     let errorString: String? = nil
                     rootViewController.handleLoginResponse(loginSuccess: loginSuccess, errorString: errorString)

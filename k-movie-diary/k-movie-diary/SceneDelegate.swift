@@ -21,10 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
        
         
-        let url = URLContexts.first!.url        
+        let url = URLContexts.first!.url
         if url.scheme == "kdramadiary" {
             
-            if let rootViewController = self.window?.rootViewController as? ApiKeyViewController {
+            if let rootViewController = self.window?.rootViewController as? LoginViewController {
                 let loginSuccess = LoginResponseSuccess(success: true, expiresAt: "", requestToken: TmdbClient.Auth.requestToken!)
                 let errorString: String? = nil
                 rootViewController.handleLoginResponse(loginSuccess: loginSuccess, errorString: errorString)

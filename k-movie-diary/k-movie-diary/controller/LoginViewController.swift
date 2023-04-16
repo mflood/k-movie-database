@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ApiKeyViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
