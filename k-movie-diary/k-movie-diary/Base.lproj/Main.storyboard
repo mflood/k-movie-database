@@ -11,7 +11,7 @@
         <!--Api Key View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ApiKeyViewController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="ApiKeyViewController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,6 @@
                         <outlet property="passwordTextField" destination="VbK-lT-yUP" id="D6D-Vj-q4l"/>
                         <outlet property="startButton" destination="SoE-eU-9EK" id="ff5-r8-aIS"/>
                         <outlet property="usernameTextField" destination="AN8-JY-1DJ" id="aka-0E-gci"/>
-                        <segue destination="ZO0-jU-T6w" kind="presentation" identifier="SegueToAppRoot" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Kr3-BF-Z0S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,14 +85,18 @@
             </objects>
             <point key="canvasLocation" x="82" y="-21"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--K Drama Diary-->
         <scene sceneID="wZG-MG-vnA">
             <objects>
-                <navigationController id="ZO0-jU-T6w" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hvD-9G-mOX"/>
+                <navigationController storyboardIdentifier="MainNavigationController" id="ZO0-jU-T6w" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="K Drama Diary" id="hvD-9G-mOX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Djq-5O-mrl">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="opaqueSeparatorColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="IB3-Ah-vsP" kind="relationship" relationship="rootViewController" id="e0d-om-9KI"/>
@@ -189,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="4224" y="-410"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="hS6-DU-uxe">
             <objects>
-                <tabBarController id="IB3-Ah-vsP" sceneMemberID="viewController">
+                <tabBarController id="IB3-Ah-vsP" customClass="MainTabBarController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Hxn-bH-V7e"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j9e-il-z45">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -210,6 +213,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

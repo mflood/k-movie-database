@@ -159,20 +159,11 @@ class ApiKeyViewController: UIViewController {
         
         if newSessionResponseSuccess.success {
             DispatchQueue.main.async {
-                
-                //DispatchQueue.main.async {
-                //    let otmTabBarController = self.storyboard!.instantiateViewController(withIdentifier: "OtmRootNavigationController") as! UINavigationController
-                    
-                //    otmTabBarController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                //    self.present(otmTabBarController, animated: true)
-                //}
-
-                self.performSegue(withIdentifier: "SegueToAppRoot", sender: nil)
+                let mainTabBarController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+                mainTabBarController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                self.present(mainTabBarController, animated: true)
             }
         }
-        
-        
-        
     }
     
     func showAlert(title: String, message: String) {

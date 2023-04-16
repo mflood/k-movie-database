@@ -24,6 +24,7 @@ class TmdbClient {
         case externalUserAuth(requestToken: String)
         case internalLogin(apiKey: String)
         case newSession(apiKey: String)
+        case deleteSession
 
         var stringValue: String {
             switch self {
@@ -35,6 +36,8 @@ class TmdbClient {
                 return Endpoint.base + "authentication/token/validate_with_login?api_key=" + apiKey
             case .newSession(apiKey: let apiKey):
                 return Endpoint.base + "authentication/session/new?api_key=" + apiKey
+            case .deleteSession:
+                return Endpoint.base + "authentication/session?api_key=" + TmdbClient.Auth.apiKey!
             }
         }
         
@@ -42,8 +45,34 @@ class TmdbClient {
             return URL(string: self.stringValue)!
         }
     }
-    
-    
+   
+    class func deleteSession(completion: @escaping (_ errorString:  String?) -> Void) {
+        
+        guard let sessionId = TmdbClient.Auth.sessionId else {
+            completion(nil)
+            return
+        }
+        let url = TmdbClient.Endpoint.deleteSession.url
+        print("url: \(url)")
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = DeleteSessionRequest(sessionId: sessionId)
+        urlRequest.httpBody = try! JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+           
+            completion(nil)
+            guard let data = data else {
+                completion(error?.localizedDescription)
+                return
+            }
+            TmdbClient.Auth.sessionId = nil
+        }
+        task.resume()
+    }
     class func newSession(apiKey: String,
                      requestToken: String,
                      completion: @escaping (NewSessionResponseSuccess?, _ errorString:  String?) -> Void) {

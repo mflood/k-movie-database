@@ -11,7 +11,6 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-
     @IBOutlet weak var apiKeyLabel: UILabel!
     @IBOutlet weak var requestTokenLabel: UILabel!
     @IBOutlet weak var sessionIdLabel: UILabel!

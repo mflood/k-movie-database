@@ -69,6 +69,14 @@ struct NewSessionRequest: Codable {
 }
 
 
+struct DeleteSessionRequest: Codable {
+    var sessionId: String
+    
+    enum CodingKeys: String, CodingKey {
+        case sessionId = "session_id"
+    }
+}
+
 
 struct NewSessionResponseSuccess: Codable {
     var success: Bool
