@@ -16,27 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="V0P-fn-tzo">
-                                <rect key="frame" x="16" y="59" width="361" height="759"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V0P-fn-tzo">
+                                <rect key="frame" x="16" y="58.999999999999986" width="361" height="250.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMDB API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsJ-aD-t3X">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN8-JY-1DJ">
-                                        <rect key="frame" x="0.0" y="134" width="361" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbK-lT-yUP">
-                                        <rect key="frame" x="0.0" y="281.66666666666669" width="361" height="34"/>
+                                        <rect key="frame" x="0.0" y="54" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TMDB API KEY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-JA-CP3">
-                                        <rect key="frame" x="0.0" y="429" width="361" height="34"/>
+                                        <rect key="frame" x="0.0" y="108" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
@@ -45,7 +39,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-fw-54i">
-                                        <rect key="frame" x="0.0" y="576.66666666666663" width="361" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="162" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
@@ -53,7 +47,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoE-eU-9EK">
-                                        <rect key="frame" x="0.0" y="724.66666666666663" width="361" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="216.33333333333331" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="시작"/>
                                         <connections>
@@ -70,7 +64,6 @@
                             <constraint firstItem="V0P-fn-tzo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5Xg-lg-YGI"/>
                             <constraint firstItem="V0P-fn-tzo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HIx-cF-zct"/>
                             <constraint firstItem="V0P-fn-tzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qmg-Nu-NJF"/>
-                            <constraint firstItem="V0P-fn-tzo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bk4-OA-AwL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -83,7 +76,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="95d-V9-L2t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-251" y="-21"/>
+            <point key="canvasLocation" x="-251.14503816793894" y="-21.126760563380284"/>
         </scene>
         <!--K Drama Diary-->
         <scene sceneID="wZG-MG-vnA">
