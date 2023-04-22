@@ -24,6 +24,16 @@ struct AuthenticationTokenNewResponseSuccess: Codable {
     }
 }
 
+struct Tmdb401Response: Codable {
+    var statusCode: Int32
+    var statusMessage: String
+    
+    enum CodingKeys: String, CodingKey {
+        case statusCode = "status_code"
+        case statusMessage = "status_message"
+    }
+}
+
 struct TmdbApiFailureResponse: Codable {
     var success: Bool
     var statusCode: Int32

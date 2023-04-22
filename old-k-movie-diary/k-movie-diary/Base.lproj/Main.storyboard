@@ -169,21 +169,92 @@
             </objects>
             <point key="canvasLocation" x="4224" y="302"/>
         </scene>
-        <!--Item 1-->
+        <!--Movie Search-->
         <scene sceneID="cez-A4-acE">
             <objects>
-                <viewController id="qTy-Nt-E0E" sceneMemberID="viewController">
+                <viewController id="qTy-Nt-E0E" customClass="MovieSearchTableController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rk2-HI-B3O">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Search Terms" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-bA-wD7">
+                                <rect key="frame" x="16" y="735" width="252" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="V1d-vC-CK4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="handleSearchTextValueChanged:" destination="qTy-Nt-E0E" eventType="valueChanged" id="Wea-SM-gIL"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Sk-R0-0pd">
+                                <rect key="frame" x="16" y="103" width="361" height="624"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveResultTableCell" textLabel="Lbp-eY-J2l" detailTextLabel="RN6-ii-pN4" style="IBUITableViewCellStyleSubtitle" id="4OD-uW-LN5">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieTableViewCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4OD-uW-LN5" id="ZPz-6y-Bl2">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lbp-eY-J2l">
+                                                    <rect key="frame" x="20" y="6.0000000000000009" width="25" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RN6-ii-pN4">
+                                                    <rect key="frame" x="19.999999999999996" y="22.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9C-yo-uGI">
+                                <rect key="frame" x="272" y="734" width="105" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="DeZ-Q9-pvf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title="Search"/>
+                                <connections>
+                                    <action selector="handleSearchButtonClicked:" destination="qTy-Nt-E0E" eventType="touchUpInside" id="UFQ-zc-TEr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="D7D-s7-fqq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Sk-R0-0pd" firstAttribute="trailing" secondItem="Rk2-HI-B3O" secondAttribute="trailingMargin" id="5dp-cf-d2O"/>
+                            <constraint firstItem="7Sk-R0-0pd" firstAttribute="top" secondItem="D7D-s7-fqq" secondAttribute="top" id="655-x5-Cx4"/>
+                            <constraint firstItem="7Sk-R0-0pd" firstAttribute="leading" secondItem="Rk2-HI-B3O" secondAttribute="leadingMargin" id="7lu-6R-vTj"/>
+                            <constraint firstItem="Qrd-bA-wD7" firstAttribute="bottom" secondItem="D7D-s7-fqq" secondAttribute="bottom" id="B9l-Od-RkL"/>
+                            <constraint firstItem="Qrd-bA-wD7" firstAttribute="centerY" secondItem="Z9C-yo-uGI" secondAttribute="centerY" id="Jbl-De-IO4"/>
+                            <constraint firstItem="Z9C-yo-uGI" firstAttribute="leading" secondItem="Qrd-bA-wD7" secondAttribute="trailing" constant="4" id="JqJ-LJ-tZ9"/>
+                            <constraint firstItem="Z9C-yo-uGI" firstAttribute="top" secondItem="7Sk-R0-0pd" secondAttribute="bottom" constant="7" id="Khe-DC-8Su"/>
+                            <constraint firstItem="7Sk-R0-0pd" firstAttribute="trailing" secondItem="Z9C-yo-uGI" secondAttribute="trailing" id="ezG-hi-qTr"/>
+                            <constraint firstItem="Qrd-bA-wD7" firstAttribute="bottom" secondItem="Z9C-yo-uGI" secondAttribute="bottom" id="k8m-S1-o4C"/>
+                            <constraint firstItem="7Sk-R0-0pd" firstAttribute="leading" secondItem="Qrd-bA-wD7" secondAttribute="leading" id="p4h-ls-3TR"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="AeO-sM-ros"/>
+                    <tabBarItem key="tabBarItem" title="Movie Search" image="film" catalog="system" id="AeO-sM-ros"/>
+                    <connections>
+                        <outlet property="movieTableView" destination="7Sk-R0-0pd" id="KLQ-Lr-kql"/>
+                        <outlet property="searchButton" destination="Z9C-yo-uGI" id="r3K-br-4nH"/>
+                        <outlet property="searchTextField" destination="Qrd-bA-wD7" id="9K6-rT-G6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpG-8e-uFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4224" y="-477"/>
+            <point key="canvasLocation" x="4223.6641221374048" y="-399.29577464788736"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="hS6-DU-uxe">
@@ -206,6 +277,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="film" catalog="system" width="128" height="93"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

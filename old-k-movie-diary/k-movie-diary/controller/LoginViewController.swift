@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         }
 
         let url = TmdbClient.Endpoint.externalUserAuth(requestToken: successReponse.requestToken).url
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async {
             UIApplication.shared.open(url)
         }
     }

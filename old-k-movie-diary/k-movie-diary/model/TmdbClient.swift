@@ -7,6 +7,7 @@
 
 import Foundation
 
+import NaturalLanguage
 
 class TmdbClient {
     
@@ -25,6 +26,7 @@ class TmdbClient {
         case internalLogin(apiKey: String)
         case newSession(apiKey: String)
         case deleteSession
+        case searchMovie(query: String, page: Int32)
 
         var stringValue: String {
             switch self {
@@ -38,12 +40,56 @@ class TmdbClient {
                 return Endpoint.base + "authentication/session/new?api_key=" + apiKey
             case .deleteSession:
                 return Endpoint.base + "authentication/session?api_key=" + TmdbClient.Auth.apiKey!
+            case .searchMovie(query: let query, page: let page):
+                
+                let tagger = NLTagger(tagSchemes: [.language])
+                tagger.string = query
+                let detectedLanguage = tagger.dominantLanguage?.rawValue ?? "und"
+                print("Detected language: \(detectedLanguage)")
+                
+                var language = "ko-KR"
+                if detectedLanguage == "ko" {
+                    language = "ko-KR"
+                }
+                
+                let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                return Endpoint.base + "search/movie?api_key=" + Auth.apiKey! + "&include_adult=false&language=\(language)&page=\(page)&query=" + encodedQuery!
             }
         }
         
         var url: URL {
             return URL(string: self.stringValue)!
         }
+    }
+    
+    class func searchMovie(query:  String, page: Int32, completion: @escaping (_ movieSearchResponse: MovieSearchResponse?, _ errorString: String?) -> Void) {
+        
+        let url = TmdbClient.Endpoint.searchMovie(query: query, page: page).url
+        
+        print("url: \(url)")
+        
+        let task = URLSession.shared.dataTask(with: url)  {data, response, error in
+           
+            guard let data = data else {
+                completion(nil, error?.localizedDescription)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let movieSearchResponse = try decoder.decode(MovieSearchResponse.self, from: data)
+                completion(movieSearchResponse, nil)
+                return
+            } catch {
+                do {
+                    let failureResponseObject = try decoder.decode(Tmdb401Response.self, from: data)
+                    completion(nil, failureResponseObject.statusMessage)
+                } catch {
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
     }
    
     class func deleteSession(completion: @escaping (_ errorString:  String?) -> Void) {
