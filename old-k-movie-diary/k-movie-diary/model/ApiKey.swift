@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 func loadTmdbApiKey(){
     
     if let path = Bundle.main.path(forResource: "tmdb_api", ofType: "plist") {

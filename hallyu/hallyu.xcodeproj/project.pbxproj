@@ -17,6 +17,13 @@
 		6FDB671C29F45B0A00EBE8B7 /* hallyuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB671B29F45B0A00EBE8B7 /* hallyuTests.swift */; };
 		6FDB672629F45B0A00EBE8B7 /* hallyuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB672529F45B0A00EBE8B7 /* hallyuUITests.swift */; };
 		6FDB672829F45B0A00EBE8B7 /* hallyuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB672729F45B0A00EBE8B7 /* hallyuUITestsLaunchTests.swift */; };
+		6FDB673629F45B6500EBE8B7 /* MovieSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB673529F45B6500EBE8B7 /* MovieSearchResponse.swift */; };
+		6FDB673829F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673729F45B9C00EBE8B7 /* tmdb_api_template.plist */; };
+		6FDB673929F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673729F45B9C00EBE8B7 /* tmdb_api_template.plist */; };
+		6FDB673A29F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673729F45B9C00EBE8B7 /* tmdb_api_template.plist */; };
+		6FDB673C29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673B29F45BAA00EBE8B7 /* tmdb_api.plist */; };
+		6FDB673D29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673B29F45BAA00EBE8B7 /* tmdb_api.plist */; };
+		6FDB673E29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB673B29F45BAA00EBE8B7 /* tmdb_api.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,9 @@
 		6FDB672129F45B0A00EBE8B7 /* hallyuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hallyuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDB672529F45B0A00EBE8B7 /* hallyuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hallyuUITests.swift; sourceTree = "<group>"; };
 		6FDB672729F45B0A00EBE8B7 /* hallyuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hallyuUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6FDB673529F45B6500EBE8B7 /* MovieSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchResponse.swift; sourceTree = "<group>"; };
+		6FDB673729F45B9C00EBE8B7 /* tmdb_api_template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tmdb_api_template.plist; sourceTree = "<group>"; };
+		6FDB673B29F45BAA00EBE8B7 /* tmdb_api.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tmdb_api.plist; path = "../../old-k-movie-diary/k-movie-diary/tmdb_api.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		6FDB670029F45B0900EBE8B7 /* hallyu */ = {
 			isa = PBXGroup;
 			children = (
+				6FDB673429F45B4C00EBE8B7 /* tmdb schema */,
 				6FDB670129F45B0900EBE8B7 /* AppDelegate.swift */,
 				6FDB670329F45B0900EBE8B7 /* SceneDelegate.swift */,
 				6FDB670529F45B0900EBE8B7 /* ViewController.swift */,
@@ -108,6 +119,8 @@
 				6FDB670D29F45B0A00EBE8B7 /* Assets.xcassets */,
 				6FDB670F29F45B0A00EBE8B7 /* LaunchScreen.storyboard */,
 				6FDB671229F45B0A00EBE8B7 /* Info.plist */,
+				6FDB673729F45B9C00EBE8B7 /* tmdb_api_template.plist */,
+				6FDB673B29F45BAA00EBE8B7 /* tmdb_api.plist */,
 				6FDB670A29F45B0900EBE8B7 /* hallyu.xcdatamodeld */,
 			);
 			path = hallyu;
@@ -128,6 +141,14 @@
 				6FDB672729F45B0A00EBE8B7 /* hallyuUITestsLaunchTests.swift */,
 			);
 			path = hallyuUITests;
+			sourceTree = "<group>";
+		};
+		6FDB673429F45B4C00EBE8B7 /* tmdb schema */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB673529F45B6500EBE8B7 /* MovieSearchResponse.swift */,
+			);
+			path = "tmdb schema";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDB673829F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */,
 				6FDB671129F45B0A00EBE8B7 /* LaunchScreen.storyboard in Resources */,
+				6FDB673C29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */,
 				6FDB670E29F45B0A00EBE8B7 /* Assets.xcassets in Resources */,
 				6FDB670929F45B0900EBE8B7 /* Main.storyboard in Resources */,
 			);
@@ -244,6 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDB673D29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */,
+				6FDB673929F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +276,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDB673E29F45BAA00EBE8B7 /* tmdb_api.plist in Resources */,
+				6FDB673A29F45B9C00EBE8B7 /* tmdb_api_template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +290,7 @@
 			files = (
 				6FDB670629F45B0900EBE8B7 /* ViewController.swift in Sources */,
 				6FDB670229F45B0900EBE8B7 /* AppDelegate.swift in Sources */,
+				6FDB673629F45B6500EBE8B7 /* MovieSearchResponse.swift in Sources */,
 				6FDB670C29F45B0900EBE8B7 /* hallyu.xcdatamodeld in Sources */,
 				6FDB670429F45B0900EBE8B7 /* SceneDelegate.swift in Sources */,
 			);
