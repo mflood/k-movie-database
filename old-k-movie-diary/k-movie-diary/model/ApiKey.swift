@@ -16,7 +16,7 @@ func loadTmdbApiKey(){
             let propertyListDecoder = PropertyListDecoder()
             let apiKey = try? propertyListDecoder.decode(TmdbApiKey.self, from: data)
             TmdbClient.Auth.apiKey = apiKey?.apiKey
-            print("Loaded TmdbClient.Auth.apiKey: \(TmdbClient.Auth.apiKey)")
+            print("Loaded TmdbClient.Auth.apiKey: \(TmdbClient.Auth.apiKey ?? "no api Key")")
         } catch {
             // Handle error here
             print(error)

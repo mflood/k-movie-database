@@ -27,6 +27,7 @@ class TmdbClient {
         case newSession(apiKey: String)
         case deleteSession
         case searchMovie(query: String, page: Int32)
+        case searchTv(query: String, page: Int32)
 
         var stringValue: String {
             switch self {
@@ -54,6 +55,20 @@ class TmdbClient {
                 
                 let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 return Endpoint.base + "search/movie?api_key=" + Auth.apiKey! + "&include_adult=false&language=\(language)&page=\(page)&query=" + encodedQuery!
+            case .searchTv(query: let query, page: let page):
+                
+                let tagger = NLTagger(tagSchemes: [.language])
+                tagger.string = query
+                let detectedLanguage = tagger.dominantLanguage?.rawValue ?? "und"
+                print("Detected language: \(detectedLanguage)")
+                
+                var language = "ko-KR"
+                if detectedLanguage == "ko" {
+                    language = "ko-KR"
+                }
+                
+                let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                return Endpoint.base + "search/tv?api_key=" + Auth.apiKey! + "&include_adult=false&language=\(language)&page=\(page)&query=" + encodedQuery!
             }
         }
         
@@ -61,6 +76,38 @@ class TmdbClient {
             return URL(string: self.stringValue)!
         }
     }
+    
+    
+    class func searchTv(query:  String, page: Int32, completion: @escaping (_ tvSearchResponse: TvSearchResponse?, _ errorString: String?) -> Void) {
+        
+        let url = TmdbClient.Endpoint.searchTv(query: query, page: page).url
+        
+        print("url: \(url)")
+        
+        let task = URLSession.shared.dataTask(with: url)  {data, response, error in
+           
+            guard let data = data else {
+                completion(nil, error?.localizedDescription)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let tvSearchResponse = try decoder.decode(TvSearchResponse.self, from: data)
+                completion(tvSearchResponse, nil)
+                return
+            } catch {
+                do {
+                    let failureResponseObject = try decoder.decode(Tmdb401Response.self, from: data)
+                    completion(nil, failureResponseObject.statusMessage)
+                } catch {
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+    }
+    
     
     class func searchMovie(query:  String, page: Int32, completion: @escaping (_ movieSearchResponse: MovieSearchResponse?, _ errorString: String?) -> Void) {
         

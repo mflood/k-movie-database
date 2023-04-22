@@ -1,51 +1,50 @@
 //
-//  MovieSearchResponse.swift
+//  TvSearchResponse.swift
 //  hallyu
 //
-//  Created by Matthew Flood on 4/16/23.
+//  Created by Matthew Flood on 4/22/23.
 //
-
-
 
 import Foundation
 
-struct MovieListResultObject: Codable {
-    var posterPath: String?
+
+struct TvListResultObject: Codable {
     var adult: Bool
-    var overview: String
-    var releaseDate: String
+    var backdropPath: String?
     var genreIds: [Int32]
     var id: Int32
-    var originalTitle: String
+    var originCountry: [String]
     var originalLanguage: String
-    var title: String
-    var backdropPath: String?
+    var originalName: String
+    var overview: String
     var popularity: Double
+    var posterPath: String?
+    var firstAirDate: String
+    var name: String
     var voteCount: Int32
-    var video: Bool
     var voteAverage: Double
     
     enum CodingKeys: String, CodingKey {
-        case posterPath = "poster_path"
         case adult
-        case overview
-        case releaseDate = "release_date"
+        case backdropPath = "backdrop_path"
         case genreIds = "genre_ids"
         case id
-        case originalTitle = "original_title"
+        case originCountry = "origin_country"
         case originalLanguage = "original_language"
-        case title
-        case backdropPath = "backdrop_path"
+        case originalName = "original_name"
+        case overview
         case popularity
+        case posterPath = "poster_path"
+        case firstAirDate = "first_air_date"
+        case name
         case voteCount = "vote_count"
-        case video
         case voteAverage = "vote_average"
     }
 }
 
-struct MovieSearchResponse: Codable {
+struct TvSearchResponse: Codable {
     var page: Int32
-    var results: [MovieListResultObject]
+    var results: [TvListResultObject]
     var totalResults: Int32
     var totalPages: Int32
     

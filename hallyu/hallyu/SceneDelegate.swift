@@ -50,6 +50,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        // To handle OAUth-Like Callback...
+        let url = URLContexts.first!.url
+        if url.scheme == "hallyu" {
+            if let rootViewController = self.window?.rootViewController as? LoginViewController {
+                let loginSuccess = LoginResponseSuccess(success: true, expiresAt: "", requestToken: TmdbClient.Auth.requestToken!)
+                let errorString: String? = nil
+                rootViewController.handleLoginResponse(loginSuccess: loginSuccess, errorString: errorString)
+            }
+        }
+    }
 
 }
 

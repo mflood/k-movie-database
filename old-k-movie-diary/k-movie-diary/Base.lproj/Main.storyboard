@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="hallyu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,7 @@
         <!--Settings View Controller-->
         <scene sceneID="tjn-WK-W1H">
             <objects>
-                <viewController id="g6I-Uv-EZ8" customClass="SettingsViewController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g6I-Uv-EZ8" customClass="SettingsViewController" customModule="hallyu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kJj-Gb-z09">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,10 +169,92 @@
             </objects>
             <point key="canvasLocation" x="4224" y="302"/>
         </scene>
+        <!--TV-->
+        <scene sceneID="opB-kC-1z4">
+            <objects>
+                <viewController id="kzA-uw-95X" customClass="TvSearchTableController" customModule="hallyu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UuL-p8-nBh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mjU-qV-YrE">
+                                <rect key="frame" x="16" y="103" width="361" height="588"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TvResultTableCell" textLabel="fD2-Yo-R8y" detailTextLabel="QDw-ih-s8U" style="IBUITableViewCellStyleSubtitle" id="xEq-5I-KJT">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xEq-5I-KJT" id="DX8-Z6-v8y">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fD2-Yo-R8y">
+                                                    <rect key="frame" x="20" y="6.0000000000000009" width="25" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QDw-ih-s8U">
+                                                    <rect key="frame" x="19.999999999999996" y="22.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EH7-vd-NLn">
+                                <rect key="frame" x="16" y="735" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2A9-Q8-nfk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="handleSearchTextValueChanged:" destination="kzA-uw-95X" eventType="editingDidEnd" id="JZn-kU-Eq3"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-UV-cJH">
+                                <rect key="frame" x="301" y="734" width="76" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="search"/>
+                                <connections>
+                                    <action selector="handleSearchButtonClicked:" destination="kzA-uw-95X" eventType="touchUpInside" id="Goq-gn-5Kb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cO8-1O-gnx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EH7-vd-NLn" firstAttribute="bottom" secondItem="cO8-1O-gnx" secondAttribute="bottom" id="5UT-YA-yQt"/>
+                            <constraint firstItem="cO8-1O-gnx" firstAttribute="trailing" secondItem="mfr-UV-cJH" secondAttribute="trailing" constant="16" id="NuW-uL-N3e"/>
+                            <constraint firstItem="mjU-qV-YrE" firstAttribute="top" secondItem="cO8-1O-gnx" secondAttribute="top" id="RNw-VH-xFs"/>
+                            <constraint firstItem="mfr-UV-cJH" firstAttribute="bottom" secondItem="cO8-1O-gnx" secondAttribute="bottom" id="SDL-az-x2O"/>
+                            <constraint firstItem="EH7-vd-NLn" firstAttribute="leading" secondItem="cO8-1O-gnx" secondAttribute="leading" constant="16" id="hF3-vf-rSk"/>
+                            <constraint firstItem="mfr-UV-cJH" firstAttribute="top" secondItem="mjU-qV-YrE" secondAttribute="bottom" constant="43" id="mHT-dy-MUr"/>
+                            <constraint firstItem="cO8-1O-gnx" firstAttribute="trailing" secondItem="mjU-qV-YrE" secondAttribute="trailing" constant="16" id="rsH-bc-jXp"/>
+                            <constraint firstItem="mjU-qV-YrE" firstAttribute="leading" secondItem="cO8-1O-gnx" secondAttribute="leading" constant="16" id="vD5-D2-5IY"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="TV" image="tv.inset.filled" catalog="system" id="swA-vd-V05"/>
+                    <connections>
+                        <outlet property="searchButton" destination="mfr-UV-cJH" id="aha-ik-Y5T"/>
+                        <outlet property="searchTextField" destination="EH7-vd-NLn" id="SrR-JY-s52"/>
+                        <outlet property="tvTableView" destination="mjU-qV-YrE" id="FzG-sw-8wC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6F1-jT-h3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3463.3587786259541" y="-848.59154929577471"/>
+        </scene>
         <!--Movie Search-->
         <scene sceneID="cez-A4-acE">
             <objects>
-                <viewController id="qTy-Nt-E0E" customClass="MovieSearchTableController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qTy-Nt-E0E" customClass="MovieSearchTableController" customModule="hallyu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rk2-HI-B3O">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,7 +341,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="hS6-DU-uxe">
             <objects>
-                <tabBarController id="IB3-Ah-vsP" customClass="MainTabBarController" customModule="k_movie_diary" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="IB3-Ah-vsP" customClass="MainTabBarController" customModule="hallyu" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Hxn-bH-V7e"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j9e-il-z45">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -269,6 +351,7 @@
                     <connections>
                         <segue destination="qTy-Nt-E0E" kind="relationship" relationship="viewControllers" id="0VJ-3f-Qnx"/>
                         <segue destination="y9l-hw-QOk" kind="relationship" relationship="viewControllers" id="v6C-Oc-zpP"/>
+                        <segue destination="kzA-uw-95X" kind="relationship" relationship="viewControllers" id="Cp5-DB-v6z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLE-Mo-sm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -279,11 +362,15 @@
     <resources>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="tv.inset.filled" catalog="system" width="128" height="95"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
